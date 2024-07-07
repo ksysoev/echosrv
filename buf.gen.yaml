@@ -1,0 +1,14 @@
+version: v1
+plugins:
+  - plugin: go
+    out: gen
+    opt:
+      - paths=source_relative
+  - plugin: go-grpc
+    out: gen
+    opt:
+      - paths=source_relative
+  - plugin: grpc-redis
+    out: gen
+    opt:
+      - paths=source_relative
