@@ -8,7 +8,7 @@ plugins:
     out: gen
     opt:
       - paths=source_relative
-  - plugin: grpc-redis
+  - plugin: rpc-redis
     out: gen
     opt:
       - paths=source_relative
