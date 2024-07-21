@@ -4,7 +4,7 @@ go 1.22.5
 
 require (
 	github.com/google/uuid v1.6.0
-	github.com/ksysoev/redis-rpc v0.0.0-20240706132329-8f14b89b41c5
+	github.com/ksysoev/rpc-redis v0.3.0
 	github.com/redis/go-redis/v9 v9.5.3
 	google.golang.org/grpc v1.65.0
 	google.golang.org/protobuf v1.34.2

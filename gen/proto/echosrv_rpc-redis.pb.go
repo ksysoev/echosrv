@@ -15,8 +15,8 @@ type RPCRedisEchoService struct {
 	service  *EchoServiceService
 }
 
-func NewRedisEchoService(redis *v9.Client, grpcService *EchoServiceService) *RPCRedisEchoService {
-	rpcServer := rpc_redis.NewServer(redis, "echo.EchoService", "EchoServiceGroup", uuid.New().String())
+func NewRedisEchoService(redis *v9.Client, grpcService *EchoServiceService, opts ...rpc_redis.ServerOption) *RPCRedisEchoService {
+	rpcServer := rpc_redis.NewServer(redis, "echo.EchoService", "EchoServiceGroup", uuid.New().String(), opts...)
 	service := &RPCRedisEchoService{
 		rpcSever: rpcServer,
 		service:  grpcService,
@@ -36,7 +36,7 @@ func (x *RPCRedisEchoService) Close() {
 	x.rpcSever.Close()
 }
 
-func (x *RPCRedisEchoService) handleEcho(req rpc_redis.Request) (any, error) {
+func (x *RPCRedisEchoService) handleEcho(req *rpc_redis.Request) (any, error) {
 	var rpcReq StringMessage
 
 	err := req.ParseParams(&rpcReq)
